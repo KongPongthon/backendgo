@@ -15,7 +15,9 @@ func main() {
 
     // เชื่อม DB
     db.ConnectDB()
-    db.DB.AutoMigrate(&models.User{})
+    // db.DB.AutoMigrate(&models.User{}, &models.UserDetail{})
+    db.DB.AutoMigrate(&models.User{}, &models.UserDetail{})
+
 
     // Middleware ทั่วไป
     r.Use(middleware.RateLimitMiddleware())
